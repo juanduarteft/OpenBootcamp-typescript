@@ -1,0 +1,22 @@
+{
+  "name": "ts-demo",
+  "version": "1.0.0",
+  "description": "Proyecto de ejemplo para el desarrollo con ts",
+  "main": "index.js",
+  "scripts": {
+    "tsNode": "cd src && ts-node index.ts",
+    "start": "nodemon",
+    "traspilation": "tsc",
+    "build:prod": "rimraf ./build && tsc",
+    "start:prod": "npm rum build:prod && node build/index.js"
+  },
+  "author": "J@\u001b[C\u001b[@juanfduartet",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^22.1.0",
+    "nodemon": "^3.1.4",
+    "rimraf": "^6.0.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4"
+  }
+}
