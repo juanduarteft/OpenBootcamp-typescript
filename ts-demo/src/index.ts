@@ -48,7 +48,7 @@ let listaTareas:string[] = ['tarea1', 'Tarea2']
 // combinar tipos en listas
 let valores:(string|number|boolean)[] = [false, 'hola', true, 54]
 
-// enumerados
+// enumerados -> permite definir un conjunto de constantes 
 enum Estados {
     'completado' = 'C',
     'incompleto' = 'I',
@@ -64,7 +64,7 @@ enum PuestoCarrera {
 let estadoTarea: Estados = Estados.completado
 let puestoMaraton: PuestoCarrera = PuestoCarrera.segundo
 
-//  clases o interfaces
+//  clases o interfaces - es una estructura en forma de objeto
 interface Tarea{
     nombre:string,
     estado:Estados,
@@ -80,7 +80,46 @@ let tarea1: Tarea = {
 
 console.log(`Tarea ${tarea1.nombre}`)
 
-// types de Typescript - conjuntos de datos mas complejos es la diferencia a interfaces
+
+// asignacion multiple de variables
+let miTarea = {
+    titulo: 'Mitarea',
+    estado:Estados.completado,
+    urgencia:1
+}
+
+// ** factor spread(propagacion)
+
+// declaracion 1 a 1
+let miTitulo = miTarea.titulo
+let miEstado = miTarea.estado
+let miUrgencia = miTarea.urgencia
+
+
+// en asignacion multiple
+let {titulo:string, estado, urgencia:number} = miTarea
+
+// en listas
+let listaCompraLunes:string[] = ['leche', 'papa']
+let listaCompraMartes:string[] = [...listaCompraLunes, 'tomate', 'cebolla']
+
+// en objetos
+let estadoApp = {
+    usuario:'admin',
+    sesion:3,
+    jwt:'asdasd'
+}
+
+// cambiar valor de propagacion
+let nuevoEstado = {
+    ...Estados,
+    sesion:4
+}
+
+/**
+ * types de Typescript - conjuntos de datos mas complejos es la diferencia a interfaces usado mas
+ * que todo en tuplas
+**/
 type Producto = {
     precio:number,
     nombre:string,
@@ -126,7 +165,6 @@ switch (tarea1.estado) {
         break;
 }
 
-
 try {
     
 } catch (error) {
@@ -152,8 +190,33 @@ let listaTareasNueva : Tarea[] = [
     }
 ]
 
+// for clasico
+for(let index= 0; index < listaTareasNueva.length ; index++)
+{
+    const tarea = listaTareasNueva[index]
+    console.log(`for clasico ${index} - ${tarea}`)
+}
+
+// for each
 listaTareasNueva.forEach( 
     (tarea:Tarea, index:number) => {
-        console.log(`${index} - ${tarea.nombre}`)
+        console.log(`for each ${index} - ${tarea.nombre}`)
     }
 )
+
+// while
+while(tarea1.estado !== Estados.completado)
+{   
+    if(tarea1.urgencia == 20){
+        tarea1.estado = Estados.completado
+        break
+    }else{
+        tarea1.urgencia++
+    }
+}
+
+// while
+do{
+    tarea1.urgencia++
+    tarea1.estado = Estados.completado
+}while(tarea1.estado !== Estados.completado);
