@@ -220,3 +220,54 @@ do{
     tarea1.urgencia++
     tarea1.estado = Estados.completado
 }while(tarea1.estado !== Estados.completado);
+
+
+// ** video 3: funciones
+
+/**
+ * funcion que muestra un saludo por consola
+ */
+function saludar_por_consola() {
+    let name:string = 'juan'
+    console.log('hola mundo')
+}
+
+saludar_por_consola()
+
+/**
+ * funcion que muestra un saludo por consola a una persona
+ * @param name Nombre de la persona
+ */
+function saludar_persona(name:string)
+{
+    console.log(`Hola ${name}`)
+}
+
+// invocacion
+saludar_persona('Juancho')
+
+/**
+ * funcion que muestra un saludo por consola a una persona
+ * @param name nombre de la persona a saluda, default 'pepe'
+ */
+function despedirPersona(name:string = 'Jose') {
+    console.log(`Adios ${name}`)
+}
+
+despedirPersona() // adios pepe 
+despedirPersona('alba')
+
+/**
+ * Funcion que muestra un despido a una persona
+ * @param name (opcional) nombre de la persona a despedir
+ */
+function despedirPersonaOpcional(name?:string) {
+    if(name){
+        console.log(`Adios ${name}`)
+    }else{
+        console.log(`Adios`)
+    }
+}
+
+despedirPersonaOpcional() // adios
+despedirPersonaOpcional('rosa') // adios 'rosa'

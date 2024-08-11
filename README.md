@@ -64,3 +64,5 @@
 
 2. Video 2: Variables y datos
     - con ver el codigo basta // - video 2
+
+3- Video 3: Funciones
