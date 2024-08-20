@@ -263,7 +263,7 @@ despedirPersona('alba')
  */
 function despedirPersonaOpcional(name?:string) {
     if(name){
-        console.log(`Adios ${name}`)
+        console.log(`Adios ${name}`)  
     }else{
         console.log(`Adios`)
     }
@@ -271,3 +271,33 @@ function despedirPersonaOpcional(name?:string) {
 
 despedirPersonaOpcional() // adios
 despedirPersonaOpcional('rosa') // adios 'rosa'
+
+function variosParams(name:string, lastname?:string|undefined, age:number = 18 ){
+    if(lastname){
+        console.log(`${name} ${lastname} tiene ${age} años`)
+    }else{
+        console.log(`${name} tiene ${age} años`)
+    }
+}
+
+variosParams('Juaan') // Juaan tiene 18 años
+variosParams('Juaan', 'Duarte') // Juaan Duarte tiene 18 años
+variosParams('Juaan', 'Duarte', 28) // Juaan Duarte tiene 28 años
+variosParams('Juaan', undefined, 28) // Juaan Duarte tiene 28 años 
+// variosParams(name='Juaan', undefined) // Juaan Duarte tiene 28 años 
+// variosParams(name='Juaan', lastname='Duarte', age=10) // Juaan Duarte tiene 28 años 
+
+function ejemploVariosTipos(a:string|number){
+    typeof(a) == 'string' ? console.log(a,'es un string') : console.log(a, 'Es un number')
+}
+
+ejemploVariosTipos('hola')
+// ejemploVariosTipos(true)
+
+// ** f anonimas 
+ function ejemploReturn(nombre:string, apellidos:string):string{
+    return `${nombre} ${apellidos}`
+ }
+
+ const nombreCompleto = ejemploReturn('juan', 'duarte')
+ console.log(nombreCompleto)
